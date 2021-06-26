@@ -20,5 +20,10 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.post("/score","RankController.index")
-Route.get("/","RankController.show")
+Route.group(() => {
+  Route.get('/device/status/:id', 'UsersController.index')
+  Route.get('/device/new', 'UsersController.store')
+})
+
+Route.post('/score', 'RankController.index')
+Route.get('/', 'RankController.show')
